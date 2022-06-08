@@ -5,7 +5,7 @@ export class Domicilio{
     public constructor(direccion:string,localidad:string){
         this.direccion=direccion;
         this.localidad=localidad;
-    }
+    };
 };
 
 export class Tutor{
@@ -19,7 +19,7 @@ export class Tutor{
         this.apellido_tutor=apellido_tutor;
         this.telefono_tutor=telefono_tutor;
         this.vinculo_tutor=vinculo_tutor;
-    }
+    };
 };
 
 export class Socie{
@@ -46,5 +46,5 @@ export class Socie{
         this.mail=mail;
         this.escuela=escuela;
         this.carrera=carrera;
-    }
+    };
 };
