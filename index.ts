@@ -19,5 +19,6 @@ server.start( () => {
     
 });
 
-const nombre="Johnny Arvelo";
-console.log(`mi nombre es ${nombre}`);
+const nombre="Johnny ";
+const apellido="Arvelo"
+console.log(`mi nombre es ${nombre}${apellido}`);
