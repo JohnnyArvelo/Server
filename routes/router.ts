@@ -1,12 +1,40 @@
 import { Router, Request, Response } from "express";
-
+import { Socie } from "../classes/socie";
+import { Socio } from "../model/socie.model";
 export const router = Router();
 
 
 router.get('/socies', (req: Request, res: Response) => {
+    
+    let socies : Array<Socio> = [
+        { nombre:"Mark",
+        apellido:"Evans",
+        nick:"inazuma",
+        edad:16,
+        },
+
+        { nombre:"Dio",
+        apellido:"Brando",
+        nick:"Wauardo",
+        edad:1000,
+        },
+
+        { nombre:"Nahuel",
+        apellido:"Calveira",
+        nick:"Origin",
+        edad:21,
+        },
+
+        { nombre:"Luffy",
+        apellido:"Monkey D.",
+        nick:"Mugiwara no luffy",
+        edad:19,
+        },
+     ]
+
     res.json({
         ok: true,
-        mensaje: "todo ok!"
+        socies: socies
     });
 });
 
