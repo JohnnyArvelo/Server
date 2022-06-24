@@ -3,39 +3,52 @@ import { Socie } from "../classes/socie";
 import { Socio } from "../model/socie.model";
 export const router = Router();
 
+let socies : Array<Socio> = [
+    { nombre:"Mark",
+    apellido:"Evans",
+    nick:"Inazuma",
+    edad:16
+    },
+
+    { nombre:"Dio",
+    apellido:"Brando",
+    nick:"Zawuardo",
+    edad:1000,
+    },
+
+    { nombre:"Nahuel",
+    apellido:"Calveira",
+    nick:"Origin",
+    edad:21,
+    },
+
+    { nombre:"Luffy",
+    apellido:"Monkey D.",
+    nick:"Mugiwara no luffy",
+    edad:19,
+    },
+ ]
+
 
 router.get('/socies', (req: Request, res: Response) => {
     
-    let socies : Array<Socio> = [
-        { nombre:"Mark",
-        apellido:"Evans",
-        nick:"inazuma",
-        edad:16,
-        },
-
-        { nombre:"Dio",
-        apellido:"Brando",
-        nick:"Wauardo",
-        edad:1000,
-        },
-
-        { nombre:"Nahuel",
-        apellido:"Calveira",
-        nick:"Origin",
-        edad:21,
-        },
-
-        { nombre:"Luffy",
-        apellido:"Monkey D.",
-        nick:"Mugiwara no luffy",
-        edad:19,
-        },
-     ]
-
     res.json({
         ok: true,
         socies: socies
     });
+});
+
+router.get("/socie/:nick", (req: Request, res:Response) => {
+    let ficha:Socio = { nombre :"", apellido:"",nick:"",edad: 0};
+    socies.forEach((socie:Socio) => {
+        if (socie.nick === req.params.nick){
+            ficha=socie;
+        }
+    });
+    res.json({
+        ok:true,
+        socie:ficha
+    })
 });
 
 router.post("/registro",(req:Request,res:Response) =>{
