@@ -49,6 +49,22 @@ router.get("/socie/:nick", (req: Request, res:Response) => {
         ok:true,
         socie:ficha
     })
+    console.log();
+    
+});
+
+router.post ("/edit-socie/:nick", (req: Request, res: Response) => {
+    socies.forEach(socie => {
+        if (socie.nick === req.params.nick){
+            socie.nick = req.body.nick;
+            socie.apellido = req.body.apellido;
+            socie.edad = Number(req.params.edad);
+            socie.nombre = req.body.nombre;
+        }
+    });
+    res.json({
+        socies:socies
+    })
 });
 
 router.post("/registro",(req:Request,res:Response) =>{
